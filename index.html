@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BTS SIO SISR | Hussein GEWAYRIYA</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amberCustom: '#f3a638',
+                        amberHover: '#e09224',
+                        darkBg: '#0b0b0e',
+                        cardBg: '#141419'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .btn-glow {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(243, 166, 56, 0.2);
+        }
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(243, 166, 56, 0.5);
+        }
+        .bg-glow {
+            background: radial-gradient(circle at 80% 30%, rgba(243, 166, 56, 0.12) 0%, rgba(11, 11, 14, 0) 60%);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amberCustom selection:text-black bg-glow">
+
+    <!-- En-tête / Navbar Style Dark/Amber -->
+    <header class="sticky top-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 font-bold text-lg tracking-tight text-white hover:opacity-90 transition">
+                <div class="w-8 h-8 rounded-lg border border-amberCustom/40 bg-amberCustom/10 flex items-center justify-center text-amberCustom">
+                    <i class="fas fa-brain text-xs"></i>
+                </div>
+                <span>hussein<span class="text-amberCustom">.sisr</span></span>
+            </a>
+            
+            <!-- Liens interactifs de navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
+                <a href="#presentation" class="hover:text-amberCustom transition-colors duration-200">Présentation</a>
+                <a href="#parcours" class="hover:text-amberCustom transition-colors duration-200">Parcours</a>
+                <a href="#projets" class="hover:text-amberCustom transition-colors duration-200">Réalisations E4</a>
+            </nav>
+
+            <!-- Bouton CTA interactif Header -->
+            <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="bg-amberCustom hover:bg-amberHover text-slate-950 font-bold px-5 py-2.5 rounded-full text-sm btn-glow inline-flex items-center gap-2">
+                <span>Tableau E4</span>
+                <i class="fas fa-external-link-alt text-xs"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 flex-grow w-full">
+
+        <!-- SECTION HERO -->
+        <section id="presentation" class="py-16 grid lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7">
+                <!-- Badge d'en-tête -->
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amberCustom/30 bg-amberCustom/10 text-amberCustom text-xs font-semibold mb-6">
+                    <span class="flex h-2 w-2 rounded-full bg-amberCustom animate-pulse"></span>
+                    BTS SIO SISR — MyDigitalSchool Angers
+                </div>
+                
+                <!-- Titre principal -->
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+                    Hussein <br>
+                    <span class="text-amberCustom">GEWAYRIYA</span>
+                </h1>
+                
+                <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-xl">
+                    Étudiant en BTS SIO option SISR à <strong>MyDigitalSchool Angers</strong>. Passionné par la gestion des infrastructures systèmes, réseaux et l'intégration de solutions d'assistance basées sur l'intelligence artificielle.
+                </p>
+
+                <!-- Boutons d'action interactifs -->
+                <div class="flex flex-wrap gap-4 items-center">
+                    <a href="#projets" class="bg-amberCustom hover:bg-amberHover text-slate-950 font-bold px-7 py-3.5 rounded-full text-sm btn-glow inline-flex items-center gap-3">
+                        <span>Explorer mes projets</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="border border-white/10 hover:border-amberCustom/50 text-slate-300 hover:text-white px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white/5 hover:bg-white/10">
+                        Voir le Tableau de Synthèse
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visuel / Illustration Tech IA -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="w-full max-w-sm aspect-square rounded-3xl border border-amberCustom/20 bg-cardBg p-8 relative overflow-hidden flex flex-col justify-between shadow-2xl">
+                    <div class="absolute -right-12 -top-12 w-40 h-40 bg-amberCustom/20 rounded-full blur-3xl"></div>
+                    
+                    <div class="flex justify-between items-center z-10">
+                        <span class="text-xs font-mono text-amberCustom">STAGE 2024</span>
+                        <i class="fas fa-microchip text-slate-600"></i>
+                    </div>
+
+                    <div class="z-10 my-auto">
+                        <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-1">Lybernet / Carrefour Assurance</div>
+                        <div class="text-xl font-bold text-white mb-2">Assistant IA & Base de Connaissances</div>
+                        <p class="text-xs text-slate-400">Projet d'intégration NotebookLM pour conseillers métiers.</p>
+                    </div>
+
+                    <div class="z-10 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-slate-400">
+                        <span>FSP n°1</span>
+                        <span class="text-amberCustom font-semibold">En cours</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION PARCOURS -->
+        <section id="parcours" class="py-12 border-t border-white/5">
+            <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-3">Expérience clé</h2>
+            <h3 class="text-2xl font-bold text-white mb-8">Stage chez Lybernet — Carrefour Assurance</h3>
+
+            <div class="bg-cardBg border border-white/5 rounded-2xl p-6 sm:p-8 hover:border-amberCustom/30 transition duration-300">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-4 gap-2">
+                    <h4 class="text-lg font-bold text-white">Technicien Support & Intégration IA</h4>
+                    <span class="text-xs font-semibold text-amberCustom bg-amberCustom/10 px-3 py-1 rounded-full w-fit">Stage 5 semaines</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Analyse des tickets récurrents, rédaction des fiches de résolutions au format Markdown et alimentation de la base de connaissances NotebookLM pour créer une assistance IA dédiée aux conseillers.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg border border-white/5">Helpdesk</span>
+                    <span class="text-xs bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg border border-white/5">Markdown</span>
+                    <span class="text-xs bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg border border-white/5">NotebookLM</span>
+                    <span class="text-xs bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg border border-white/5">Analyse de données</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PROJETS E4 -->
+        <section id="projets" class="py-12 border-t border-white/5">
+            <div class="mb-8">
+                <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-3">Portfolio E4</h2>
+                <h3 class="text-2xl font-bold text-white">Réalisations Professionnelles</h3>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+                <!-- Carte Projet 1 -->
+                <div class="bg-cardBg border border-white/5 rounded-2xl p-6 flex flex-col justify-between hover:border-amberCustom/40 transition duration-300 group">
+                    <div>
+                        <span class="text-xs font-semibold text-amberCustom mb-2 block">FSP n°1</span>
+                        <h4 class="text-lg font-bold text-white mb-2 group-hover:text-amberCustom transition">Assistant IA & Support Conseillers</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            Création d'une base de connaissances Markdown et intégration dans NotebookLM pour réduire l'ouverture de tickets.
+                        </p>
+                    </div>
+                    <a href="#" class="text-xs text-amberCustom font-bold flex items-center gap-2 group-hover:translate-x-1 transition">
+                        <span>Fiche bientôt disponible</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Emplacement Projet 2 -->
+                <div class="bg-cardBg/40 border border-dashed border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
+                    <i class="fas fa-plus text-slate-600 mb-2"></i>
+                    <p class="text-sm font-medium text-slate-400">Projet n°2 à venir</p>
+                    <p class="text-xs text-slate-600 mt-1">Stage 2 / Alternance</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 text-center text-xs text-slate-600">
+        <p>© 2026 — Portfolio BTS SIO SISR — Hussein GEWAYRIYA (MyDigitalSchool Angers)</p>
+    </footer>
+
+</body>
+</html>
