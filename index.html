@@ -6,6 +6,18 @@
     <title>Portfolio BTS SIO SISR | Hussein GEWAYRIYA</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sunset: '#f97316',
+                        sunsetDark: '#ea580c'
+                    }
+                }
+            }
+        }
+    </script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -21,11 +33,14 @@
             pointer-events: none;
             z-index: 0;
         }
+        .glow-sunset {
+            text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+        }
     </style>
 </head>
 <body class="text-slate-200 font-sans antialiased min-h-screen relative overflow-x-hidden">
 
-    <!-- Canvas Animation Synaptique -->
+    <!-- CANVAS : TOILE SYNAPTIQUE AIMANTÉE (IDÉE 2) -->
     <canvas id="synapseCanvas"></canvas>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 py-8 flex flex-col justify-between min-h-screen">
@@ -33,20 +48,21 @@
         <!-- Navigation / En-tête -->
         <header class="flex justify-between items-center py-4 mb-8">
             <a href="#" class="flex items-center gap-2 font-bold text-lg text-white tracking-tight">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+                <div class="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-500">
                     <i class="fas fa-brain text-xs"></i>
                 </div>
-                <span>Hussein<span class="text-amber-400">Gewayriya</span></span>
+                <span>Hussein<span class="text-orange-500">Gewayriya</span></span>
             </a>
 
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#presentation" class="hover:text-amber-400 transition">Présentation</a>
-                <a href="#entreprise" class="hover:text-amber-400 transition">Entreprise</a>
-                <a href="#projets" class="hover:text-amber-400 transition">Projets</a>
-                <a href="#contact" class="hover:text-amber-400 transition">Contact</a>
+                <a href="#presentation" class="hover:text-orange-500 transition">Présentation</a>
+                <a href="#entreprise" class="hover:text-orange-500 transition">Entreprise</a>
+                <a href="#projets" class="hover:text-orange-500 transition">Projets</a>
+                <a href="#assistant-ia" class="hover:text-orange-500 transition">Assistant IA</a>
+                <a href="#contact" class="hover:text-orange-500 transition">Contact</a>
             </nav>
 
-            <a href="Tableau-de-synthese.pdf" target="_blank" class="px-4 py-2 rounded-full border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 text-xs font-semibold transition">
+            <a href="Tableau-de-synthese.pdf" target="_blank" class="px-4 py-2 rounded-full border border-orange-500/40 bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 text-xs font-semibold transition">
                 Tableau E4 (PDF)
             </a>
         </header>
@@ -58,14 +74,14 @@
                 
                 <!-- Texte Présentation -->
                 <div class="lg:col-span-7">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/40 bg-amber-500/10 text-amber-400 text-xs font-medium mb-6">
-                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/40 bg-orange-500/10 text-orange-400 text-xs font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
                         <span>BTS SIO SISR — MyDigitalSchool Angers</span>
                     </div>
                     
                     <h1 class="text-5xl sm:text-6xl font-black tracking-tight text-white leading-none mb-6">
                         Hussein<br>
-                        <span class="text-amber-400 drop-shadow-[0_0_20px_rgba(251,191,36,0.6)]">GEWAYRIYA</span>
+                        <span class="text-orange-500 glow-sunset">GEWAYRIYA</span>
                     </h1>
                     
                     <p class="text-slate-300 text-base leading-relaxed mb-8 max-w-lg">
@@ -73,32 +89,42 @@
                     </p>
 
                     <div class="flex flex-wrap gap-4 items-center">
-                        <a href="#projets" class="px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-black font-bold text-sm transition-all shadow-[0_0_20px_rgba(251,191,36,0.5)] flex items-center gap-2">
+                        <a href="#projets" class="px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-black font-bold text-sm transition-all shadow-[0_0_20px_rgba(249,115,22,0.5)] flex items-center gap-2">
                             <span>Explorer mes projets</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                         
-                        <a href="https://www.linkedin.com/in/gewayriya-hussein-16b5892a3" target="_blank" class="px-6 py-3 rounded-full bg-slate-900/80 border border-slate-700 hover:border-slate-500 text-slate-200 font-medium text-sm transition-all flex items-center gap-2">
-                            <i class="fab fa-linkedin text-amber-400"></i>
+                        <a href="https://www.linkedin.com/in/gewayriya-hussein-16b5892a3" target="_blank" class="px-6 py-3 rounded-full bg-slate-900/80 border border-slate-700 hover:border-orange-500/50 text-slate-200 font-medium text-sm transition-all flex items-center gap-2">
+                            <i class="fab fa-linkedin text-orange-500"></i>
                             <span>Me contacter / LinkedIn</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Carte Profil Droite -->
+                <!-- CARTE PROFIL DROITE : YEUX IA INTERACTIFS (IDÉE 1) -->
                 <div class="lg:col-span-5 flex justify-center">
-                    <div class="w-full max-w-sm rounded-3xl border border-amber-500/30 bg-[#0d0f17]/90 backdrop-blur-md p-8 flex flex-col items-center text-center shadow-[0_0_30px_rgba(0,0,0,0.8)]">
-                        <div class="w-24 h-24 rounded-full border-2 border-amber-400 p-1 mb-5 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)]">
-                            <div class="w-full h-full rounded-full bg-[#181a26] flex items-center justify-center">
-                                <i class="fas fa-user-astronaut text-amber-400 text-3xl"></i>
+                    <div class="w-full max-w-sm rounded-3xl border border-orange-500/30 bg-[#0d0f17]/90 backdrop-blur-md p-8 flex flex-col items-center text-center shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:border-orange-500/60 transition group">
+                        
+                        <!-- Core IA avec Regard qui suit la souris -->
+                        <div class="w-28 h-28 rounded-full border-2 border-orange-500 p-1 mb-5 flex items-center justify-center shadow-[0_0_25px_rgba(249,115,22,0.4)] relative">
+                            <div class="w-full h-full rounded-full bg-[#131622] flex items-center justify-center relative overflow-hidden">
+                                <!-- Visage Cyber / Yeux IA -->
+                                <div id="iaEyeContainer" class="flex items-center gap-3 transition-transform duration-75">
+                                    <div class="w-4 h-6 rounded-full bg-orange-500 shadow-[0_0_10px_#f97316] relative flex items-center justify-center">
+                                        <div class="w-1.5 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                    <div class="w-4 h-6 rounded-full bg-orange-500 shadow-[0_0_10px_#f97316] relative flex items-center justify-center">
+                                        <div class="w-1.5 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <h3 class="text-xl font-bold text-white mb-1">Hussein GEWAYRIYA</h3>
-                        <p class="text-amber-400 text-xs font-semibold mb-6">Futur Administrateur Systèmes & Réseaux</p>
+                        <p class="text-orange-400 text-xs font-semibold mb-6">Futur Administrateur Systèmes & Réseaux</p>
                         
                         <div class="w-full pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-center gap-2">
-                            <i class="fas fa-map-marker-alt text-amber-400"></i>
+                            <i class="fas fa-map-marker-alt text-orange-500"></i>
                             <span>Angers, France</span>
                         </div>
                     </div>
@@ -112,15 +138,15 @@
             <!-- SECTION ENTREPRISE -->
             <section id="entreprise" class="py-6">
                 <div class="mb-8">
-                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block mb-2">CADRE PROFESSIONNEL</span>
+                    <span class="text-orange-500 text-xs font-bold uppercase tracking-wider block mb-2">CADRE PROFESSIONNEL</span>
                     <h2 class="text-2xl sm:text-3xl font-bold text-white">Mon Expérience en Entreprise</h2>
                 </div>
 
                 <div class="grid lg:grid-cols-12 gap-6">
                     <!-- Carte Lybernet -->
-                    <div class="lg:col-span-7 bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-amber-500/40 transition">
+                    <div class="lg:col-span-7 bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-orange-500/40 transition">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                            <div class="w-10 h-10 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-500">
                                 <i class="fas fa-building"></i>
                             </div>
                             <h3 class="text-lg font-bold text-white">Lybernet — Carrefour Assurance</h3>
@@ -136,24 +162,24 @@
                     </div>
 
                     <!-- Carte Environnement -->
-                    <div class="lg:col-span-5 bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-amber-500/40 transition">
+                    <div class="lg:col-span-5 bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-orange-500/40 transition">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                            <div class="w-10 h-10 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-500">
                                 <i class="fas fa-server"></i>
                             </div>
                             <h3 class="text-lg font-bold text-white">Environnement & Technologies</h3>
                         </div>
                         <ul class="space-y-3 text-xs text-slate-300">
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check text-amber-400"></i>
+                                <i class="fas fa-check text-orange-500"></i>
                                 <span>Système de Ticketing Octopus</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check text-amber-400"></i>
+                                <i class="fas fa-check text-orange-500"></i>
                                 <span>Workspace Google & Chat Bots</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <i class="fas fa-check text-amber-400"></i>
+                                <i class="fas fa-check text-orange-500"></i>
                                 <span>Documentation technique Markdown</span>
                             </li>
                         </ul>
@@ -164,21 +190,21 @@
             <!-- SECTION PROJETS E4 -->
             <section id="projets" class="py-12 border-t border-slate-800/80 mt-12">
                 <div class="mb-8">
-                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block mb-2">PORTFOLIO E4</span>
+                    <span class="text-orange-500 text-xs font-bold uppercase tracking-wider block mb-2">PORTFOLIO E4</span>
                     <h2 class="text-2xl sm:text-3xl font-bold text-white">Réalisations Professionnelles</h2>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/40 transition">
+                    <div class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-orange-500/40 transition">
                         <div>
-                            <span class="text-amber-400 text-xs font-semibold mb-2 block">Situation Professionnelle n°1</span>
+                            <span class="text-orange-400 text-xs font-semibold mb-2 block">Situation Professionnelle n°1</span>
                             <h4 class="text-lg font-bold text-white mb-2">Bot Conversational IA & Support Conseillers</h4>
                             <p class="text-xs text-slate-400 leading-relaxed mb-4">
                                 Intégration d'un assistant conversationnel basé sur Gemini et Markdown pour guider les conseillers et réduire le flux de tickets N1.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
-                            <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="text-xs text-amber-400 font-bold flex items-center gap-1.5 hover:underline">
+                            <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="text-xs text-orange-400 font-bold flex items-center gap-1.5 hover:underline">
                                 <span>Voir la fiche d'activité</span>
                                 <i class="fas fa-external-link-alt text-[10px]"></i>
                             </a>
@@ -192,33 +218,74 @@
                 </div>
             </section>
 
-            <!-- SECTION CONTACT (EN BAS) -->
+            <!-- SECTION TERMINAL / CHATBOT INTERACTIF (IDÉE 3) -->
+            <section id="assistant-ia" class="py-12 border-t border-slate-800/80 mt-12">
+                <div class="mb-8">
+                    <span class="text-orange-500 text-xs font-bold uppercase tracking-wider block mb-2">INTERACTIVE DEMO</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Interroger l'Assistant Virtual SISR</h2>
+                </div>
+
+                <div class="bg-[#0b0c14] border border-orange-500/30 rounded-2xl p-6 max-w-3xl mx-auto shadow-[0_0_25px_rgba(249,115,22,0.15)]">
+                    <!-- En-tête Terminal -->
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                            <span class="text-xs font-mono text-slate-400 ml-2">hussein-bot-v2.6 ~ bash</span>
+                        </div>
+                        <span class="text-[10px] text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20 font-mono">ONLINE</span>
+                    </div>
+
+                    <!-- Fenêtre de Chat -->
+                    <div id="chatWindow" class="space-y-4 mb-6 min-h-[140px] max-h-[220px] overflow-y-auto text-xs font-mono pr-2">
+                        <div class="text-slate-300">
+                            <span class="text-orange-500 font-bold">[Bot IA] :</span> Bonjour ! Cliquez sur une question ci-dessous pour m'interroger sur le parcours d'Hussein.
+                        </div>
+                    </div>
+
+                    <!-- Questions rapides (Boutons) -->
+                    <div class="flex flex-wrap gap-2 border-t border-slate-800/80 pt-4">
+                        <button onclick="askBot('competences')" class="text-xs bg-slate-900 border border-slate-700 hover:border-orange-500/60 text-slate-300 hover:text-orange-400 px-3 py-1.5 rounded-lg transition">
+                            💡 Tes compétences principales ?
+                        </button>
+                        <button onclick="askBot('lybernet')" class="text-xs bg-slate-900 border border-slate-700 hover:border-orange-500/60 text-slate-300 hover:text-orange-400 px-3 py-1.5 rounded-lg transition">
+                            🏢 Ton rôle chez Lybernet ?
+                        </button>
+                        <button onclick="askBot('bot')" class="text-xs bg-slate-900 border border-slate-700 hover:border-orange-500/60 text-slate-300 hover:text-orange-400 px-3 py-1.5 rounded-lg transition">
+                            🤖 Parle-moi de ton Bot IA (E4)
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION CONTACT -->
             <section id="contact" class="py-12 border-t border-slate-800/80 mt-12">
                 <div class="mb-8">
-                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block mb-2">ME CONTACTER</span>
+                    <span class="text-orange-500 text-xs font-bold uppercase tracking-wider block mb-2">ME CONTACTER</span>
                     <h2 class="text-2xl sm:text-3xl font-bold text-white">Restons en contact</h2>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-6">
                     <!-- Carte Email -->
-                    <a href="mailto:gewayriyahussein@gmail.com" class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex items-center gap-4 hover:border-amber-500/40 transition group">
-                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition">
+                    <a href="mailto:gewayriyahussein@gmail.com" class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex items-center gap-4 hover:border-orange-500/40 transition group">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-500 group-hover:scale-105 transition">
                             <i class="fas fa-envelope text-lg"></i>
                         </div>
                         <div>
                             <span class="text-xs text-slate-400 block mb-1">Adresse Email</span>
-                            <span class="text-sm font-bold text-white group-hover:text-amber-400 transition">gewayriyahussein@gmail.com</span>
+                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition">gewayriyahussein@gmail.com</span>
                         </div>
                     </a>
 
                     <!-- Carte LinkedIn -->
-                    <a href="https://www.linkedin.com/in/gewayriya-hussein-16b5892a3" target="_blank" class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex items-center gap-4 hover:border-amber-500/40 transition group">
-                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition">
+                    <a href="https://www.linkedin.com/in/gewayriya-hussein-16b5892a3" target="_blank" class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex items-center gap-4 hover:border-orange-500/40 transition group">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-500 group-hover:scale-105 transition">
                             <i class="fab fa-linkedin-in text-lg"></i>
                         </div>
                         <div>
                             <span class="text-xs text-slate-400 block mb-1">Réseau Professionnel</span>
-                            <span class="text-sm font-bold text-white group-hover:text-amber-400 transition">LinkedIn / gewayriya-hussein</span>
+                            <span class="text-sm font-bold text-white group-hover:text-orange-400 transition">LinkedIn / gewayriya-hussein</span>
                         </div>
                     </a>
                 </div>
@@ -233,13 +300,45 @@
 
     </div>
 
-    <!-- Script de la toile synaptique dorée -->
+    <!-- SCRIPTS DES INTERACTIONS IA & TOILE -->
     <script>
+        /* --- 1. REGARD IA INTERACTIF (IDÉE 1) --- */
+        const eyeContainer = document.getElementById('iaEyeContainer');
+
+        window.addEventListener('mousemove', (e) => {
+            if (!eyeContainer) return;
+            const rect = eyeContainer.getBoundingClientRect();
+            const eyeX = rect.left + rect.width / 2;
+            const eyeY = rect.top + rect.height / 2;
+
+            const deltaX = e.clientX - eyeX;
+            const deltaY = e.clientY - eyeY;
+            const angle = Math.atan2(deltaY, deltaX);
+
+            const distance = Math.min(12, Math.hypot(deltaX, deltaY) / 15);
+            const moveX = Math.cos(angle) * distance;
+            const moveY = Math.sin(angle) * distance;
+
+            eyeContainer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        /* --- 2. TOILE SYNAPTIQUE AIMANTÉE (IDÉE 2) --- */
         const canvas = document.getElementById('synapseCanvas');
         const ctx = canvas.getContext('2d');
 
         let width, height;
         let particles = [];
+        let mouse = { x: null, y: null, radius: 160 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY + window.scrollY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
 
         function resize() {
             width = canvas.width = window.innerWidth;
@@ -264,14 +363,24 @@
 
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                if (mouse.x !== null && mouse.y !== null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        this.x += dx * 0.018;
+                        this.y += dy * 0.018;
+                    }
+                }
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#f59e0b';
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = '#f59e0b';
+                ctx.fillStyle = '#f97316';
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = '#f97316';
                 ctx.fill();
                 ctx.shadowBlur = 0;
             }
@@ -297,11 +406,11 @@
                     let dist = Math.sqrt(dx * dx + dy * dy);
 
                     if (dist < 130) {
-                        let opacity = (1 - dist / 130) * 0.25;
+                        let opacity = (1 - dist / 130) * 0.3;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(245, 158, 11, ${opacity})`;
+                        ctx.strokeStyle = `rgba(249, 115, 22, ${opacity})`;
                         ctx.lineWidth = 0.8;
                         ctx.stroke();
                     }
@@ -310,8 +419,32 @@
 
             requestAnimationFrame(animate);
         }
-
         animate();
+
+        /* --- 3. TERMINAL CHATBOT INTERACTIF (IDÉE 3) --- */
+        const responses = {
+            competences: "Je maîtrise l'administration système & réseaux, le support utilisateur, le scripting, la documentation Markdown et l'intégration de bots IA (Gemini).",
+            lybernet: "Au sein de Lybernet (Carrefour Assurance), je gère le support informatique via Octopus et améliore l'efficience du service grâce à des bases de connaissances ciblées.",
+            bot: "Mon projet phare E4 consiste à concevoir un Bot Conversational sous Google Workspace utilisant Gemini pour répondre automatiquement aux problématiques récurrentes des conseillers."
+        };
+
+        function askBot(topic) {
+            const win = document.getElementById('chatWindow');
+            let userQ = "";
+            if(topic === 'competences') userQ = "💡 Quelles sont tes compétences ?";
+            if(topic === 'lybernet') userQ = "🏢 Parle-moi de ton rôle chez Lybernet";
+            if(topic === 'bot') userQ = "🤖 En quoi consiste ton Bot IA E4 ?";
+
+            win.innerHTML += `
+                <div class="text-right text-slate-400 mt-2">
+                    <span class="bg-slate-800/80 px-2 py-1 rounded border border-slate-700">${userQ}</span>
+                </div>
+                <div class="text-orange-400 mt-1">
+                    <span class="font-bold">[Bot IA] :</span> ${responses[topic]}
+                </div>
+            `;
+            win.scrollTop = win.scrollHeight;
+        }
     </script>
 </body>
 </html>
