@@ -11,10 +11,10 @@
             theme: {
                 extend: {
                     colors: {
-                        amberCustom: '#f3a638',
-                        amberHover: '#e09224',
-                        darkBg: '#0b0b0e',
-                        cardBg: '#141419'
+                        amberCustom: '#ffb703',
+                        amberHover: '#ff9f00',
+                        darkBg: '#090a0f',
+                        cardBg: '#11131c'
                     }
                 }
             }
@@ -22,52 +22,88 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Effet Glow interactif */
-        .btn-glow {
+        /* EFFET BOUTONS JAUNE BRILLANT / ÉLECTRIQUE */
+        .btn-synapse {
+            position: relative;
+            background: linear-gradient(135deg, #ffb703, #fb8500);
+            color: #000000;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 15px rgba(255, 183, 3, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .btn-synapse::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,183,3,0) 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .btn-synapse:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 25px #ffb703, 0 0 40px rgba(255, 183, 3, 0.8), inset 0 0 15px #ffffff;
+            color: #000;
+        }
+
+        .btn-synapse:hover::before {
+            opacity: 1;
+        }
+
+        /* Cartes & éléments interactifs style synapse */
+        .card-synapse {
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(243, 166, 56, 0.25);
         }
-        .btn-glow:hover {
+        .card-synapse:hover {
+            border-color: #ffb703;
+            box-shadow: 0 0 20px rgba(255, 183, 3, 0.25);
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(243, 166, 56, 0.6);
         }
-        /* Canvas pour l'animation synaptique en arrière-plan */
+
+        /* CANVAS COUVRANT TOUTE LA HAUTEUR DE LA PAGE */
         #synapseCanvas {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Laisse passer le clic vers les boutons */
+            pointer-events: none;
             z-index: 0;
         }
     </style>
 </head>
 <body class="bg-darkBg text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amberCustom selection:text-black relative overflow-x-hidden">
 
-    <!-- CANVAS ANIMATION SYNAPSIQUE (ARRIÈRE-PLAN) -->
+    <!-- CANVAS ANIMATION SYNAPSIQUE (SUR TOUTE LA PAGE) -->
     <canvas id="synapseCanvas"></canvas>
 
-    <!-- Content Wrapper pour passer au-dessus du canvas -->
     <div class="relative z-10 flex flex-col justify-between min-h-screen">
 
         <!-- En-tête / Navbar -->
-        <header class="sticky top-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-white/5">
+        <header class="sticky top-0 z-50 bg-darkBg/85 backdrop-blur-md border-b border-white/10">
             <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#" class="flex items-center gap-2 font-bold text-lg tracking-tight text-white hover:opacity-90 transition">
-                    <div class="w-8 h-8 rounded-lg border border-amberCustom/40 bg-amberCustom/10 flex items-center justify-center text-amberCustom">
+                    <div class="w-8 h-8 rounded-lg border border-amberCustom/60 bg-amberCustom/20 flex items-center justify-center text-amberCustom shadow-[0_0_10px_#ffb703]">
                         <i class="fas fa-brain text-xs"></i>
                     </div>
                     <span>hussein<span class="text-amberCustom">.sisr</span></span>
                 </a>
                 
-                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
-                    <a href="#presentation" class="hover:text-amberCustom transition-colors duration-200">Présentation</a>
-                    <a href="#parcours" class="hover:text-amberCustom transition-colors duration-200">Parcours</a>
-                    <a href="#projets" class="hover:text-amberCustom transition-colors duration-200">Réalisations E4</a>
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                    <a href="#presentation" class="hover:text-amberCustom transition duration-200">Présentation</a>
+                    <a href="#entreprise" class="hover:text-amberCustom transition duration-200">Entreprise</a>
+                    <a href="#projets" class="hover:text-amberCustom transition duration-200">Réalisations E4</a>
+                    <a href="#contact" class="hover:text-amberCustom transition duration-200">Contact</a>
                 </nav>
 
-                <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="bg-amberCustom hover:bg-amberHover text-slate-950 font-bold px-5 py-2.5 rounded-full text-sm btn-glow inline-flex items-center gap-2">
+                <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="btn-synapse px-5 py-2.5 rounded-full text-sm inline-flex items-center gap-2">
                     <span>Tableau E4</span>
                     <i class="fas fa-external-link-alt text-xs"></i>
                 </a>
@@ -76,92 +112,140 @@
 
         <main class="max-w-6xl mx-auto px-6 py-12 flex-grow w-full">
 
-            <!-- SECTION HERO -->
+            <!-- SECTION HERO / PRÉSENTATION -->
             <section id="presentation" class="py-16 grid lg:grid-cols-12 gap-12 items-center">
                 
                 <div class="lg:col-span-7">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amberCustom/30 bg-amberCustom/10 text-amberCustom text-xs font-semibold mb-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amberCustom/50 bg-amberCustom/10 text-amberCustom text-xs font-semibold mb-6 shadow-[0_0_10px_rgba(255,183,3,0.2)]">
                         <span class="flex h-2 w-2 rounded-full bg-amberCustom animate-pulse"></span>
                         BTS SIO SISR — MyDigitalSchool Angers
                     </div>
                     
                     <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
                         Hussein <br>
-                        <span class="text-amberCustom">GEWAYRIYA</span>
+                        <span class="text-amberCustom drop-shadow-[0_0_15px_rgba(255,183,3,0.6)]">GEWAYRIYA</span>
                     </h1>
                     
-                    <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-xl">
-                        Étudiant en BTS SIO option SISR à <strong>MyDigitalSchool Angers</strong>. Passionné par la gestion des infrastructures systèmes, réseaux et l'intégration de solutions d'assistance basées sur l'intelligence artificielle.
+                    <p class="text-slate-300 text-lg leading-relaxed mb-8 max-w-xl">
+                        Étudiant en BTS SIO option SISR. Passionné par la gestion des infrastructures systèmes, réseaux et l'intégration de solutions d'assistance basées sur l'intelligence artificielle.
                     </p>
 
                     <div class="flex flex-wrap gap-4 items-center">
-                        <a href="#projets" class="bg-amberCustom hover:bg-amberHover text-slate-950 font-bold px-7 py-3.5 rounded-full text-sm btn-glow inline-flex items-center gap-3">
+                        <a href="#projets" class="btn-synapse px-7 py-3.5 rounded-full text-sm inline-flex items-center gap-3">
                             <span>Explorer mes projets</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                         
-                        <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="border border-white/10 hover:border-amberCustom/50 text-slate-300 hover:text-white px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white/5 hover:bg-white/10">
-                            Voir le Tableau de Synthèse
+                        <a href="#contact" class="border border-amberCustom/40 hover:border-amberCustom text-slate-200 hover:text-white px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white/5 hover:bg-amberCustom/10 hover:shadow-[0_0_15px_rgba(255,183,3,0.3)]">
+                            Me contacter / LinkedIn
                         </a>
                     </div>
                 </div>
 
-                <!-- CARTE TECH / STAGE -->
+                <!-- CARTE PROFIL / PHOTO -->
                 <div class="lg:col-span-5 relative flex justify-center">
-                    <div class="w-full max-w-sm aspect-square rounded-3xl border border-amberCustom/20 bg-cardBg/90 backdrop-blur-md p-8 relative overflow-hidden flex flex-col justify-between shadow-2xl">
+                    <div class="w-full max-w-sm rounded-3xl border border-amberCustom/30 bg-cardBg/90 backdrop-blur-md p-8 relative overflow-hidden flex flex-col items-center text-center shadow-[0_0_30px_rgba(0,0,0,0.8)] card-synapse">
                         <div class="absolute -right-12 -top-12 w-40 h-40 bg-amberCustom/20 rounded-full blur-3xl"></div>
                         
-                        <div class="flex justify-between items-center z-10">
-                            <span class="text-xs font-mono text-amberCustom">STAGE 2024</span>
-                            <i class="fas fa-microchip text-slate-600"></i>
+                        <div class="w-28 h-28 rounded-full border-2 border-amberCustom p-1 mb-4 relative z-10 shadow-[0_0_15px_#ffb703]">
+                            <div class="w-full h-full rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
+                                <i class="fas fa-user-astronaut text-4xl text-amberCustom"></i>
+                            </div>
                         </div>
 
-                        <div class="z-10 my-auto">
-                            <div class="text-xs text-slate-500 uppercase tracking-widest font-semibold mb-1">Lybernet / Carrefour Assurance</div>
-                            <div class="text-xl font-bold text-white mb-2">Assistant IA & Base de Connaissances</div>
-                            <p class="text-xs text-slate-400">Projet d'intégration NotebookLM pour conseillers métiers.</p>
-                        </div>
-
-                        <div class="z-10 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-slate-400">
-                            <span>FSP n°1</span>
-                            <span class="text-amberCustom font-semibold">En cours</span>
+                        <h3 class="text-lg font-bold text-white z-10">Hussein GEWAYRIYA</h3>
+                        <p class="text-xs text-amberCustom font-semibold mb-4 z-10">Futur Administrateur Systèmes & Réseaux</p>
+                        
+                        <div class="w-full pt-4 border-t border-white/10 flex justify-center gap-4 text-xs text-slate-300 z-10">
+                            <span><i class="fas fa-map-marker-alt text-amberCustom mr-1"></i> Angers, France</span>
                         </div>
                     </div>
                 </div>
 
             </section>
 
-            <!-- SECTION PARCOURS -->
-            <section id="parcours" class="py-12 border-t border-white/5">
-                <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-3">Expérience clé</h2>
-                <h3 class="text-2xl font-bold text-white mb-8">Stage chez Lybernet — Carrefour Assurance</h3>
+            <!-- SECTION MON ENTREPRISE -->
+            <section id="entreprise" class="py-12 border-t border-white/10">
+                <div class="mb-8">
+                    <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-2">Cadre Professionnel</h2>
+                    <h3 class="text-2xl font-bold text-white">Mon Expérience en Entreprise</h3>
+                </div>
 
-                <div class="bg-cardBg/80 backdrop-blur-md border border-white/5 rounded-2xl p-6 sm:p-8 hover:border-amberCustom/30 transition duration-300">
-                    <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-4 gap-2">
-                        <h4 class="text-lg font-bold text-white">Technicien Support & Intégration IA</h4>
-                        <span class="text-xs font-semibold text-amberCustom bg-amberCustom/10 px-3 py-1 rounded-full w-fit">Stage 5 semaines</span>
+                <div class="grid md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-7 bg-cardBg/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 card-synapse">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amberCustom/20 border border-amberCustom/40 flex items-center justify-center text-amberCustom shadow-[0_0_10px_rgba(255,183,3,0.3)]">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Lybernet — Carrefour Assurance</h4>
+                                <p class="text-xs text-slate-400">Support IT & Optimisation des processus</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Au cours de mon expérience chez <strong>Lybernet (Carrefour Assurance)</strong>, j'ai évolué au sein du service informatique. Ma mission principale a été d'analyser la récurrence des demandes utilisateurs, de catégoriser la typologie des incidents N0/N1 et d'apporter une solution d'automatisation moderne.
+                        </p>
+
+                        <h5 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Missions réalisées :</h5>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-amberCustom mt-0.5"></i>
+                                <span>Extraction et analyse statistique des tickets d'incidents récurrents.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-amberCustom mt-0.5"></i>
+                                <span>Rédaction de documentations de résolution au format Markdown (.md).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-amberCustom mt-0.5"></i>
+                                <span>Intégration et entraînement d'un assistant virtuel IA via NotebookLM.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check text-amberCustom mt-0.5"></i>
+                                <span>Accompagnement et formation des conseillers à l'utilisation des prompts.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-white/5 text-slate-300 px-3 py-1 rounded-lg border border-white/10">Support IT</span>
+                            <span class="text-xs bg-white/5 text-slate-300 px-3 py-1 rounded-lg border border-white/10">Base de Connaissances</span>
+                            <span class="text-xs bg-white/5 text-slate-300 px-3 py-1 rounded-lg border border-white/10">NotebookLM</span>
+                        </div>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Analyse des tickets récurrents, rédaction des fiches de résolutions au format Markdown et alimentation de la base de connaissances NotebookLM pour créer une assistance IA dédiée aux conseillers.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg border border-white/5">Helpdesk</span>
-                        <span class="text-xs bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg border border-white/5">Markdown</span>
-                        <span class="text-xs bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg border border-white/5">NotebookLM</span>
-                        <span class="text-xs bg-white/5 text-slate-300 px-3 py-1.5 rounded-lg border border-white/5">Analyse de données</span>
+
+                    <div class="md:col-span-5 bg-cardBg/50 border border-white/10 rounded-2xl p-6">
+                        <h4 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fas fa-server text-amberCustom"></i>
+                            Environnement & Technologies
+                        </h4>
+                        <div class="space-y-4 text-xs text-slate-300">
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/5">
+                                <span class="text-white font-semibold block mb-1">Cible Utilisateurs</span>
+                                <span>Conseillers métiers et conseillers assurance Carrefour.</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/5">
+                                <span class="text-white font-semibold block mb-1">Outils de Support</span>
+                                <span>Gestionnaire de tickets, base documentaire Markdown.</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/5">
+                                <span class="text-white font-semibold block mb-1">Technologie Innovante</span>
+                                <span>NotebookLM (RAG - Retrieval-Augmented Generation).</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- SECTION PROJETS E4 -->
-            <section id="projets" class="py-12 border-t border-white/5">
+            <section id="projets" class="py-12 border-t border-white/10">
                 <div class="mb-8">
-                    <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-3">Portfolio E4</h2>
+                    <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-2">Portfolio E4</h2>
                     <h3 class="text-2xl font-bold text-white">Réalisations Professionnelles</h3>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="bg-cardBg/80 backdrop-blur-md border border-white/5 rounded-2xl p-6 flex flex-col justify-between hover:border-amberCustom/40 transition duration-300 group">
+                    <div class="bg-cardBg/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col justify-between card-synapse group">
                         <div>
                             <span class="text-xs font-semibold text-amberCustom mb-2 block">FSP n°1</span>
                             <h4 class="text-lg font-bold text-white mb-2 group-hover:text-amberCustom transition">Assistant IA & Support Conseillers</h4>
@@ -169,13 +253,13 @@
                                 Création d'une base de connaissances Markdown et intégration dans NotebookLM pour réduire l'ouverture de tickets.
                             </p>
                         </div>
-                        <a href="#" class="text-xs text-amberCustom font-bold flex items-center gap-2 group-hover:translate-x-1 transition">
-                            <span>Fiche bientôt disponible</span>
+                        <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="text-xs text-amberCustom font-bold flex items-center gap-2 group-hover:translate-x-1 transition">
+                            <span>Voir le document de synthèse</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
 
-                    <div class="bg-cardBg/40 border border-dashed border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
+                    <div class="bg-cardBg/30 border border-dashed border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                         <i class="fas fa-plus text-slate-600 mb-2"></i>
                         <p class="text-sm font-medium text-slate-400">Projet n°2 à venir</p>
                         <p class="text-xs text-slate-600 mt-1">Stage 2 / Alternance</p>
@@ -183,16 +267,50 @@
                 </div>
             </section>
 
+            <!-- SECTION CONTACT & LINKEDIN -->
+            <section id="contact" class="py-12 border-t border-white/10">
+                <div class="mb-8">
+                    <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-2">Réseaux & Échanges</h2>
+                    <h3 class="text-2xl font-bold text-white">Me Contacter</h3>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-6">
+                    <a href="https://www.linkedin.com/in/hussein-gewayriya/" target="_blank" class="btn-synapse p-6 rounded-2xl flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-xl bg-black/20 text-black flex items-center justify-center text-2xl mb-3">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <h4 class="font-extrabold text-sm mb-1">LinkedIn</h4>
+                        <p class="text-xs text-black/80 font-semibold">Consulter mon profil professionnel</p>
+                    </a>
+
+                    <a href="mailto:hussein.gewayriya@gmail.com" class="btn-synapse p-6 rounded-2xl flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-xl bg-black/20 text-black flex items-center justify-center text-2xl mb-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 class="font-extrabold text-sm mb-1">Email</h4>
+                        <p class="text-xs text-black/80 font-semibold">Envoyer un message direct</p>
+                    </a>
+
+                    <a href="#" class="btn-synapse p-6 rounded-2xl flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-xl bg-black/20 text-black flex items-center justify-center text-2xl mb-3">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h4 class="font-extrabold text-sm mb-1">Mon CV</h4>
+                        <p class="text-xs text-black/80 font-semibold">Télécharger mon CV PDF</p>
+                    </a>
+                </div>
+            </section>
+
         </main>
 
         <!-- Footer -->
-        <footer class="border-t border-white/5 py-8 text-center text-xs text-slate-600">
+        <footer class="border-t border-white/10 py-8 text-center text-xs text-slate-500">
             <p>© 2026 — Portfolio BTS SIO SISR — Hussein GEWAYRIYA (MyDigitalSchool Angers)</p>
         </footer>
 
     </div>
 
-    <!-- SCRIPT JS POUR L'ANIMATION INTERACTIVE DES SYNAPSES ET IMPULSIONS -->
+    <!-- SCRIPT JS ANIMATION SYNAPSIQUE (ADAPTÉ AU SCROLL TOTAL) -->
     <script>
         const canvas = document.getElementById('synapseCanvas');
         const ctx = canvas.getContext('2d');
@@ -201,32 +319,38 @@
         let particles = [];
         let pulses = [];
 
-        // Gestion de la taille du Canvas
+        // Redimensionnement qui prend TOUTE la hauteur du document
         function resize() {
             width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+            height = canvas.height = Math.max(
+                document.body.scrollHeight,
+                document.body.offsetHeight,
+                document.documentElement.clientHeight,
+                document.documentElement.scrollHeight,
+                document.documentElement.offsetHeight
+            );
         }
         window.addEventListener('resize', resize);
+        window.addEventListener('load', resize);
         resize();
 
-        // Suivi de la souris
-        const mouse = { x: null, y: null, radius: 150 };
+        // Suivi de la souris (ajusté avec le défilement de la page)
+        const mouse = { x: null, y: null, radius: 180 };
         window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
+            mouse.x = e.pageX;
+            mouse.y = e.pageY;
         });
         window.addEventListener('mouseleave', () => {
             mouse.x = null;
             mouse.y = null;
         });
 
-        // Classe des Nœuds (Particules / Boules de synapse)
         class Particle {
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.6;
-                this.vy = (Math.random() - 0.5) * 0.6;
+                this.vx = (Math.random() - 0.5) * 0.7;
+                this.vy = (Math.random() - 0.5) * 0.7;
                 this.radius = Math.random() * 2 + 1.5;
                 this.baseAlpha = Math.random() * 0.5 + 0.3;
                 this.alpha = this.baseAlpha;
@@ -239,13 +363,12 @@
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
 
-                // Interaction avec la souris (s'éclaire à proximité)
                 if (mouse.x && mouse.y) {
                     let dx = mouse.x - this.x;
                     let dy = mouse.y - this.y;
                     let dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < mouse.radius) {
-                        this.alpha = Math.min(1, this.baseAlpha + (1 - dist / mouse.radius));
+                        this.alpha = Math.min(1, this.baseAlpha + (1 - dist / mouse.radius) * 0.8);
                     } else {
                         this.alpha = this.baseAlpha;
                     }
@@ -257,21 +380,20 @@
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(243, 166, 56, ${this.alpha})`;
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = '#f3a638';
+                ctx.fillStyle = `rgba(255, 183, 3, ${this.alpha})`;
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = '#ffb703';
                 ctx.fill();
-                ctx.shadowBlur = 0; // reset
+                ctx.shadowBlur = 0;
             }
         }
 
-        // Classe des Impulsions Lumineuses (Signal qui voyage le long des synapses)
         class Pulse {
             constructor(p1, p2) {
                 this.p1 = p1;
                 this.p2 = p2;
                 this.progress = 0;
-                this.speed = Math.random() * 0.015 + 0.008;
+                this.speed = Math.random() * 0.02 + 0.01;
             }
 
             update() {
@@ -283,56 +405,51 @@
                 let y = this.p1.y + (this.p2.y - this.p1.y) * this.progress;
 
                 ctx.beginPath();
-                ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+                ctx.arc(x, y, 3, 0, Math.PI * 2);
                 ctx.fillStyle = '#ffffff';
-                ctx.shadowBlur = 12;
-                ctx.shadowColor = '#f3a638';
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#ffb703';
                 ctx.fill();
                 ctx.shadowBlur = 0;
             }
         }
 
-        // Création des particules (densité selon la taille de l'écran)
-        const particleCount = Math.floor((width * height) / 18000);
+        // Densité de particules calculée pour couvrir tout le long de la page
+        const particleCount = Math.floor((width * height) / 16000);
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
 
-        // Boucle d'animation principale
         function animate() {
             ctx.clearRect(0, 0, width, height);
 
-            // Mise à jour & dessin des nœuds
             particles.forEach(p => {
                 p.update();
                 p.draw();
             });
 
-            // Connexions synaptiques entre nœuds proches
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     let dx = particles[i].x - particles[j].x;
                     let dy = particles[i].y - particles[j].y;
                     let dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < 130) {
-                        let opacity = (1 - dist / 130) * 0.25;
+                    if (dist < 140) {
+                        let opacity = (1 - dist / 140) * 0.3;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(243, 166, 56, ${opacity})`;
-                        ctx.lineWidth = 0.8;
+                        ctx.strokeStyle = `rgba(255, 183, 3, ${opacity})`;
+                        ctx.lineWidth = 0.9;
                         ctx.stroke();
 
-                        // Créer aléatoirement une impulsion de transmission d'information
-                        if (Math.random() < 0.0003) {
+                        if (Math.random() < 0.0004) {
                             pulses.push(new Pulse(particles[i], particles[j]));
                         }
                     }
                 }
             }
 
-            // Gestion des impulsions
             for (let i = pulses.length - 1; i >= 0; i--) {
                 pulses[i].update();
                 pulses[i].draw();
