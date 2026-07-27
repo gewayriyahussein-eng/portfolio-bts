@@ -36,11 +36,40 @@
         .glow-sunset {
             text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
         }
+
+        /* YEUX TYPE SASUKE / SHARINGAN TECH */
+        .sharingan-eye {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff2a00 30%, #b30000 70%, #000 100%);
+            border: 1px solid #f97316;
+            box-shadow: 0 0 12px #f97316;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sharingan-eye::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: #000;
+            border-radius: 50%;
+            box-shadow: 0 0 4px #000;
+        }
+        .sharingan-ring {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 1px dashed rgba(0,0,0,0.8);
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body class="text-slate-200 font-sans antialiased min-h-screen relative overflow-x-hidden">
 
-    <!-- CANVAS : TOILE SYNAPTIQUE AIMANTÉE (IDÉE 2) -->
+    <!-- CANVAS : TOILE SYNAPTIQUE AIMANTÉE -->
     <canvas id="synapseCanvas"></canvas>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 py-8 flex flex-col justify-between min-h-screen">
@@ -85,7 +114,7 @@
                     </h1>
                     
                     <p class="text-slate-300 text-base leading-relaxed mb-8 max-w-lg">
-                        Étudiant en BTS SIO option SISR. Passionné par la gestion des infrastructures systèmes, réseaux et l'intégration de solutions d'assistance basées sur l'intelligence artificielle.
+                        Étudiant en BTS SIO option SISR. Spécialisé dans le traitement des données de ticketing, la structuration de documentation technique et l'intégration de bots d'assistance IA sous Google Workspace.
                     </p>
 
                     <div class="flex flex-wrap gap-4 items-center">
@@ -93,28 +122,25 @@
                             <span>Explorer mes projets</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
-                        
-                        <a href="https://www.linkedin.com/in/gewayriya-hussein-16b5892a3" target="_blank" class="px-6 py-3 rounded-full bg-slate-900/80 border border-slate-700 hover:border-orange-500/50 text-slate-200 font-medium text-sm transition-all flex items-center gap-2">
-                            <i class="fab fa-linkedin text-orange-500"></i>
-                            <span>Me contacter / LinkedIn</span>
-                        </a>
                     </div>
                 </div>
 
-                <!-- CARTE PROFIL DROITE : YEUX IA INTERACTIFS (IDÉE 1) -->
+                <!-- CARTE PROFIL DROITE : YEUX IA SASUKE INTERACTIFS -->
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="w-full max-w-sm rounded-3xl border border-orange-500/30 bg-[#0d0f17]/90 backdrop-blur-md p-8 flex flex-col items-center text-center shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:border-orange-500/60 transition group">
                         
-                        <!-- Core IA avec Regard qui suit la souris -->
+                        <!-- Core IA avec Yeux Sasuke (Sharingan Tech) qui suivent la souris -->
                         <div class="w-28 h-28 rounded-full border-2 border-orange-500 p-1 mb-5 flex items-center justify-center shadow-[0_0_25px_rgba(249,115,22,0.4)] relative">
-                            <div class="w-full h-full rounded-full bg-[#131622] flex items-center justify-center relative overflow-hidden">
-                                <!-- Visage Cyber / Yeux IA -->
-                                <div id="iaEyeContainer" class="flex items-center gap-3 transition-transform duration-75">
-                                    <div class="w-4 h-6 rounded-full bg-orange-500 shadow-[0_0_10px_#f97316] relative flex items-center justify-center">
-                                        <div class="w-1.5 h-2 bg-white rounded-full"></div>
+                            <div class="w-full h-full rounded-full bg-[#0a0b10] flex items-center justify-center relative overflow-hidden">
+                                <!-- Conteneur des yeux -->
+                                <div id="iaEyeContainer" class="flex items-center gap-4 transition-transform duration-75">
+                                    <!-- Œil Gauche Sasuke -->
+                                    <div class="sharingan-eye">
+                                        <div class="sharingan-ring"></div>
                                     </div>
-                                    <div class="w-4 h-6 rounded-full bg-orange-500 shadow-[0_0_10px_#f97316] relative flex items-center justify-center">
-                                        <div class="w-1.5 h-2 bg-white rounded-full"></div>
+                                    <!-- Œil Droit Sasuke -->
+                                    <div class="sharingan-eye">
+                                        <div class="sharingan-ring"></div>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +165,7 @@
             <section id="entreprise" class="py-6">
                 <div class="mb-8">
                     <span class="text-orange-500 text-xs font-bold uppercase tracking-wider block mb-2">CADRE PROFESSIONNEL</span>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Mon Expérience en Entreprise</h2>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Mon Expérience chez Lybernet</h2>
                 </div>
 
                 <div class="grid lg:grid-cols-12 gap-6">
@@ -152,35 +178,39 @@
                             <h3 class="text-lg font-bold text-white">Lybernet — Carrefour Assurance</h3>
                         </div>
                         <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Au sein du service informatique de Lybernet (Carrefour Assurance), j'ai contribué à l'amélioration du support IT et à la mise en place de bases de connaissances structurées ainsi qu'à l'assistance intelligente via IA.
+                            Au sein du service informatique, mes missions principales consistaient à trier et analyser l'historique des tickets résolus sur Octopus pour concevoir des fichiers de documentation technique (Markdown) exploitables par notre Bot Gemini.
                         </p>
                         <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Support IT</span>
-                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Base de Connaissances Markdown</span>
-                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Google Chat & Gemini</span>
+                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Tri de Tickets Octopus</span>
+                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Rédaction Markdown</span>
+                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Interventions Ponctuel Support</span>
                         </div>
                     </div>
 
-                    <!-- Carte Environnement -->
+                    <!-- Carte Compétences Précises -->
                     <div class="lg:col-span-5 bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-orange-500/40 transition">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-10 h-10 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-500">
-                                <i class="fas fa-server"></i>
+                                <i class="fas fa-tools"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-white">Environnement & Technologies</h3>
+                            <h3 class="text-lg font-bold text-white">Compétences Techniques</h3>
                         </div>
                         <ul class="space-y-3 text-xs text-slate-300">
                             <li class="flex items-center gap-2">
                                 <i class="fas fa-check text-orange-500"></i>
-                                <span>Système de Ticketing Octopus</span>
+                                <span>Analyse de logs & tickets Octopus</span>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class="fas fa-check text-orange-500"></i>
-                                <span>Workspace Google & Chat Bots</span>
+                                <span>Structuration de données en Markdown / Prompting</span>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class="fas fa-check text-orange-500"></i>
-                                <span>Documentation technique Markdown</span>
+                                <span>Google Workspace Apps & Chat Webhooks</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-orange-500"></i>
+                                <span>Assistance utilisateur de niveau 1 (ponctuel)</span>
                             </li>
                         </ul>
                     </div>
@@ -198,9 +228,9 @@
                     <div class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-orange-500/40 transition">
                         <div>
                             <span class="text-orange-400 text-xs font-semibold mb-2 block">Situation Professionnelle n°1</span>
-                            <h4 class="text-lg font-bold text-white mb-2">Bot Conversational IA & Support Conseillers</h4>
+                            <h4 class="text-lg font-bold text-white mb-2">Bot Conversational IA & Base de Connaissances</h4>
                             <p class="text-xs text-slate-400 leading-relaxed mb-4">
-                                Intégration d'un assistant conversationnel basé sur Gemini et Markdown pour guider les conseillers et réduire le flux de tickets N1.
+                                Exploitation des données de tickets résolus pour créer des fiches de connaissances Markdown, permettant à un bot Gemini d'orienter automatiquement les conseillers.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
@@ -218,11 +248,11 @@
                 </div>
             </section>
 
-            <!-- SECTION TERMINAL / CHATBOT INTERACTIF (IDÉE 3) -->
+            <!-- SECTION TERMINAL / CHATBOT INTERACTIF -->
             <section id="assistant-ia" class="py-12 border-t border-slate-800/80 mt-12">
                 <div class="mb-8">
-                    <span class="text-orange-500 text-xs font-bold uppercase tracking-wider block mb-2">INTERACTIVE DEMO</span>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Interroger l'Assistant Virtual SISR</h2>
+                    <span class="text-orange-500 text-xs font-bold uppercase tracking-wider block mb-2">DEMO INTERACTIVE</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Interroger l'Assistant Virtuel</h2>
                 </div>
 
                 <div class="bg-[#0b0c14] border border-orange-500/30 rounded-2xl p-6 max-w-3xl mx-auto shadow-[0_0_25px_rgba(249,115,22,0.15)]">
@@ -240,20 +270,20 @@
                     <!-- Fenêtre de Chat -->
                     <div id="chatWindow" class="space-y-4 mb-6 min-h-[140px] max-h-[220px] overflow-y-auto text-xs font-mono pr-2">
                         <div class="text-slate-300">
-                            <span class="text-orange-500 font-bold">[Bot IA] :</span> Bonjour ! Cliquez sur une question ci-dessous pour m'interroger sur le parcours d'Hussein.
+                            <span class="text-orange-500 font-bold">[Bot IA] :</span> Posez-moi une question ci-dessous sur le travail d'Hussein chez Lybernet.
                         </div>
                     </div>
 
-                    <!-- Questions rapides (Boutons) -->
+                    <!-- Questions rapides -->
                     <div class="flex flex-wrap gap-2 border-t border-slate-800/80 pt-4">
                         <button onclick="askBot('competences')" class="text-xs bg-slate-900 border border-slate-700 hover:border-orange-500/60 text-slate-300 hover:text-orange-400 px-3 py-1.5 rounded-lg transition">
-                            💡 Tes compétences principales ?
+                            🛠️ Tes compétences concrètes ?
                         </button>
                         <button onclick="askBot('lybernet')" class="text-xs bg-slate-900 border border-slate-700 hover:border-orange-500/60 text-slate-300 hover:text-orange-400 px-3 py-1.5 rounded-lg transition">
-                            🏢 Ton rôle chez Lybernet ?
+                            📋 Ton travail sur les tickets Octopus ?
                         </button>
                         <button onclick="askBot('bot')" class="text-xs bg-slate-900 border border-slate-700 hover:border-orange-500/60 text-slate-300 hover:text-orange-400 px-3 py-1.5 rounded-lg transition">
-                            🤖 Parle-moi de ton Bot IA (E4)
+                            🤖 Quel est le but du Bot Gemini ?
                         </button>
                     </div>
                 </div>
@@ -278,7 +308,7 @@
                         </div>
                     </a>
 
-                    <!-- Carte LinkedIn -->
+                    <!-- Carte LinkedIn (Unique point de contact LinkedIn) -->
                     <a href="https://www.linkedin.com/in/gewayriya-hussein-16b5892a3" target="_blank" class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex items-center gap-4 hover:border-orange-500/40 transition group">
                         <div class="w-12 h-12 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-500 group-hover:scale-105 transition">
                             <i class="fab fa-linkedin-in text-lg"></i>
@@ -302,7 +332,7 @@
 
     <!-- SCRIPTS DES INTERACTIONS IA & TOILE -->
     <script>
-        /* --- 1. REGARD IA INTERACTIF (IDÉE 1) --- */
+        /* --- 1. YEUX SASUKE INTERACTIFS --- */
         const eyeContainer = document.getElementById('iaEyeContainer');
 
         window.addEventListener('mousemove', (e) => {
@@ -315,14 +345,14 @@
             const deltaY = e.clientY - eyeY;
             const angle = Math.atan2(deltaY, deltaX);
 
-            const distance = Math.min(12, Math.hypot(deltaX, deltaY) / 15);
+            const distance = Math.min(10, Math.hypot(deltaX, deltaY) / 18);
             const moveX = Math.cos(angle) * distance;
             const moveY = Math.sin(angle) * distance;
 
             eyeContainer.style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
 
-        /* --- 2. TOILE SYNAPTIQUE AIMANTÉE (IDÉE 2) --- */
+        /* --- 2. TOILE SYNAPTIQUE AIMANTÉE --- */
         const canvas = document.getElementById('synapseCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -421,19 +451,19 @@
         }
         animate();
 
-        /* --- 3. TERMINAL CHATBOT INTERACTIF (IDÉE 3) --- */
+        /* --- 3. TERMINAL CHATBOT REPARÉ --- */
         const responses = {
-            competences: "Je maîtrise l'administration système & réseaux, le support utilisateur, le scripting, la documentation Markdown et l'intégration de bots IA (Gemini).",
-            lybernet: "Au sein de Lybernet (Carrefour Assurance), je gère le support informatique via Octopus et améliore l'efficience du service grâce à des bases de connaissances ciblées.",
-            bot: "Mon projet phare E4 consiste à concevoir un Bot Conversational sous Google Workspace utilisant Gemini pour répondre automatiquement aux problématiques récurrentes des conseillers."
+            competences: "Mes compétences : Tri et analyse de tickets IT (Octopus), rédaction technique Markdown, intégration de bots IA Google Chat, et support utilisateur ponctuel.",
+            lybernet: "Chez Lybernet, j'ai trié l'historique des tickets résolus sur Octopus pour identifier les pannes récurrentes et créer des fichiers de réponses structurés.",
+            bot: "Le Bot Gemini sert à fournir des réponses instantanées aux conseillers en se basant sur les fiches Markdown créées à partir des tickets résolus."
         };
 
         function askBot(topic) {
             const win = document.getElementById('chatWindow');
             let userQ = "";
-            if(topic === 'competences') userQ = "💡 Quelles sont tes compétences ?";
-            if(topic === 'lybernet') userQ = "🏢 Parle-moi de ton rôle chez Lybernet";
-            if(topic === 'bot') userQ = "🤖 En quoi consiste ton Bot IA E4 ?";
+            if(topic === 'competences') userQ = "🛠️ Quelles sont tes compétences concrètes ?";
+            if(topic === 'lybernet') userQ = "📋 Quel était ton travail sur Octopus ?";
+            if(topic === 'bot') userQ = "🤖 Quel est le rôle du Bot Gemini ?";
 
             win.innerHTML += `
                 <div class="text-right text-slate-400 mt-2">
