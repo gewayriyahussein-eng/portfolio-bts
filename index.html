@@ -6,68 +6,12 @@
     <title>Portfolio BTS SIO SISR | Hussein GEWAYRIYA</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        amberCustom: '#ffb703',
-                        amberHover: '#ff9f00',
-                        darkBg: '#090a0f',
-                        cardBg: '#11131c'
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* EFFET BOUTONS JAUNE BRILLANT / ÉLECTRIQUE */
-        .btn-synapse {
-            position: relative;
-            background: linear-gradient(135deg, #ffb703, #fb8500);
-            color: #000000;
-            font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 0 15px rgba(255, 183, 3, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.5);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+        body {
+            background-color: #07080c;
         }
-
-        .btn-synapse::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,183,3,0) 60%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .btn-synapse:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 25px #ffb703, 0 0 40px rgba(255, 183, 3, 0.8), inset 0 0 15px #ffffff;
-            color: #000;
-        }
-
-        .btn-synapse:hover::before {
-            opacity: 1;
-        }
-
-        /* Cartes & éléments interactifs style synapse */
-        .card-synapse {
-            transition: all 0.3s ease;
-        }
-        .card-synapse:hover {
-            border-color: #ffb703;
-            box-shadow: 0 0 20px rgba(255, 183, 3, 0.25);
-            transform: translateY(-2px);
-        }
-
-        /* CANVAS COUVRANT TOUTE LA HAUTEUR DE LA PAGE */
         #synapseCanvas {
             position: absolute;
             top: 0;
@@ -79,272 +23,203 @@
         }
     </style>
 </head>
-<body class="bg-darkBg text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amberCustom selection:text-black relative overflow-x-hidden">
+<body class="text-slate-200 font-sans antialiased min-h-screen relative overflow-x-hidden">
 
-    <!-- CANVAS ANIMATION SYNAPSIQUE (SUR TOUTE LA PAGE) -->
+    <!-- Canvas Animation Synaptique -->
     <canvas id="synapseCanvas"></canvas>
 
-    <div class="relative z-10 flex flex-col justify-between min-h-screen">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-8 flex flex-col justify-between min-h-screen">
 
-        <!-- En-tête / Navbar -->
-        <header class="sticky top-0 z-50 bg-darkBg/85 backdrop-blur-md border-b border-white/10">
-            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="#" class="flex items-center gap-2 font-bold text-lg tracking-tight text-white hover:opacity-90 transition">
-                    <div class="w-8 h-8 rounded-lg border border-amberCustom/60 bg-amberCustom/20 flex items-center justify-center text-amberCustom shadow-[0_0_10px_#ffb703]">
-                        <i class="fas fa-brain text-xs"></i>
-                    </div>
-                    <span>hussein<span class="text-amberCustom">.sisr</span></span>
-                </a>
-                
-                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                    <a href="#presentation" class="hover:text-amberCustom transition duration-200">Présentation</a>
-                    <a href="#entreprise" class="hover:text-amberCustom transition duration-200">Entreprise</a>
-                    <a href="#projets" class="hover:text-amberCustom transition duration-200">Réalisations E4</a>
-                    <a href="#veille" class="hover:text-amberCustom transition duration-200">Veille Tech</a>
-                    <a href="#contact" class="hover:text-amberCustom transition duration-200">Contact</a>
-                </nav>
+        <!-- Navigation / En-tête -->
+        <header class="flex justify-between items-center py-4 mb-8">
+            <a href="#" class="flex items-center gap-2 font-bold text-lg text-white tracking-tight">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+                    <i class="fas fa-brain text-xs"></i>
+                </div>
+                <span>Hussein<span class="text-amber-400">Gewayriya</span></span>
+            </a>
 
-                <a href="Tableau-de-synthese.pdf" target="_blank" class="btn-synapse px-5 py-2.5 rounded-full text-sm inline-flex items-center gap-2">
-                    <span>Tableau E4 (PDF)</span>
-                    <i class="fas fa-file-pdf text-xs"></i>
-                </a>
-            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#presentation" class="hover:text-amber-400 transition">Présentation</a>
+                <a href="#entreprise" class="hover:text-amber-400 transition">Entreprise</a>
+                <a href="#projets" class="hover:text-amber-400 transition">Projets</a>
+                <a href="#contact" class="hover:text-amber-400 transition">Contact</a>
+            </nav>
+
+            <a href="Tableau-de-synthese.pdf" target="_blank" class="px-4 py-2 rounded-full border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 text-xs font-semibold transition">
+                Tableau E4 (PDF)
+            </a>
         </header>
 
-        <main class="max-w-6xl mx-auto px-6 py-12 flex-grow w-full">
+        <main class="flex-grow">
 
             <!-- SECTION HERO / PRÉSENTATION -->
-            <section id="presentation" class="py-16 grid lg:grid-cols-12 gap-12 items-center">
+            <section id="presentation" class="py-12 grid lg:grid-cols-12 gap-12 items-center">
                 
+                <!-- Texte Présentation -->
                 <div class="lg:col-span-7">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amberCustom/50 bg-amberCustom/10 text-amberCustom text-xs font-semibold mb-6 shadow-[0_0_10px_rgba(255,183,3,0.2)]">
-                        <span class="flex h-2 w-2 rounded-full bg-amberCustom animate-pulse"></span>
-                        BTS SIO SISR — MyDigitalSchool Angers
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/40 bg-amber-500/10 text-amber-400 text-xs font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <span>BTS SIO SISR — MyDigitalSchool Angers</span>
                     </div>
                     
-                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-                        Hussein <br>
-                        <span class="text-amberCustom drop-shadow-[0_0_15px_rgba(255,183,3,0.6)]">GEWAYRIYA</span>
+                    <h1 class="text-5xl sm:text-6xl font-black tracking-tight text-white leading-none mb-6">
+                        Hussein<br>
+                        <span class="text-amber-400 drop-shadow-[0_0_20px_rgba(251,191,36,0.6)]">GEWAYRIYA</span>
                     </h1>
                     
-                    <p class="text-slate-300 text-lg leading-relaxed mb-8 max-w-xl">
-                        Étudiant en BTS SIO option SISR. Passionné par l'administration des infrastructures systèmes, des réseaux et l'intégration de solutions d'assistance virtuelles intelligentes (IA) appliquées au support informatique.
+                    <p class="text-slate-300 text-base leading-relaxed mb-8 max-w-lg">
+                        Étudiant en BTS SIO option SISR. Passionné par la gestion des infrastructures systèmes, réseaux et l'intégration de solutions d'assistance basées sur l'intelligence artificielle.
                     </p>
 
                     <div class="flex flex-wrap gap-4 items-center">
-                        <a href="#projets" class="btn-synapse px-7 py-3.5 rounded-full text-sm inline-flex items-center gap-3">
+                        <a href="#projets" class="px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-black font-bold text-sm transition-all shadow-[0_0_20px_rgba(251,191,36,0.5)] flex items-center gap-2">
                             <span>Explorer mes projets</span>
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                         
-                        <a href="https://www.linkedin.com/in/hussein-gewayriya/" target="_blank" class="border border-amberCustom/40 hover:border-amberCustom text-slate-200 hover:text-white px-6 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white/5 hover:bg-amberCustom/10 hover:shadow-[0_0_15px_rgba(255,183,3,0.3)] inline-flex items-center gap-2">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/gewayriya-hussein-16b5892a3" target="_blank" class="px-6 py-3 rounded-full bg-slate-900/80 border border-slate-700 hover:border-slate-500 text-slate-200 font-medium text-sm transition-all flex items-center gap-2">
+                            <i class="fab fa-linkedin text-amber-400"></i>
+                            <span>Me contacter / LinkedIn</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- CARTE PROFIL / PHOTO -->
-                <div class="lg:col-span-5 relative flex justify-center">
-                    <div class="w-full max-w-sm rounded-3xl border border-amberCustom/30 bg-cardBg/90 backdrop-blur-md p-8 relative overflow-hidden flex flex-col items-center text-center shadow-[0_0_30px_rgba(0,0,0,0.8)] card-synapse">
-                        <div class="absolute -right-12 -top-12 w-40 h-40 bg-amberCustom/20 rounded-full blur-3xl"></div>
-                        
-                        <div class="w-28 h-28 rounded-full border-2 border-amberCustom p-1 mb-4 relative z-10 shadow-[0_0_15px_#ffb703]">
-                            <div class="w-full h-full rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
-                                <i class="fas fa-user-astronaut text-4xl text-amberCustom"></i>
+                <!-- Carte Profil Droite -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-sm rounded-3xl border border-amber-500/30 bg-[#0d0f17]/90 backdrop-blur-md p-8 flex flex-col items-center text-center shadow-[0_0_30px_rgba(0,0,0,0.8)]">
+                        <div class="w-24 h-24 rounded-full border-2 border-amber-400 p-1 mb-5 flex items-center justify-center shadow-[0_0_15px_rgba(251,191,36,0.5)]">
+                            <div class="w-full h-full rounded-full bg-[#181a26] flex items-center justify-center">
+                                <i class="fas fa-user-astronaut text-amber-400 text-3xl"></i>
                             </div>
                         </div>
 
-                        <h3 class="text-lg font-bold text-white z-10">Hussein GEWAYRIYA</h3>
-                        <p class="text-xs text-amberCustom font-semibold mb-4 z-10">Futur Administrateur Systèmes & Réseaux</p>
+                        <h3 class="text-xl font-bold text-white mb-1">Hussein GEWAYRIYA</h3>
+                        <p class="text-amber-400 text-xs font-semibold mb-6">Futur Administrateur Systèmes & Réseaux</p>
                         
-                        <div class="w-full pt-4 border-t border-white/10 flex justify-center gap-4 text-xs text-slate-300 z-10">
-                            <span><i class="fas fa-map-marker-alt text-amberCustom mr-1"></i> Angers, France</span>
+                        <div class="w-full pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-center gap-2">
+                            <i class="fas fa-map-marker-alt text-amber-400"></i>
+                            <span>Angers, France</span>
                         </div>
                     </div>
                 </div>
 
             </section>
 
-            <!-- SECTION MON ENTREPRISE -->
-            <section id="entreprise" class="py-12 border-t border-white/10">
+            <!-- LIGNE DE SÉPARATION -->
+            <div class="w-full h-[1px] bg-slate-800/80 my-12"></div>
+
+            <!-- SECTION ENTREPRISE -->
+            <section id="entreprise" class="py-6">
                 <div class="mb-8">
-                    <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-2">Cadre Professionnel</h2>
-                    <h3 class="text-2xl font-bold text-white">Mon Expérience en Entreprise</h3>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block mb-2">CADRE PROFESSIONNEL</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Mon Expérience en Entreprise</h2>
                 </div>
 
-                <div class="grid md:grid-cols-12 gap-8 items-start">
-                    <div class="md:col-span-7 bg-cardBg/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 card-synapse">
+                <div class="grid lg:grid-cols-12 gap-6">
+                    <!-- Carte Lybernet -->
+                    <div class="lg:col-span-7 bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-amber-500/40 transition">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-amberCustom/20 border border-amberCustom/40 flex items-center justify-center text-amberCustom shadow-[0_0_10px_rgba(255,183,3,0.3)]">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
                                 <i class="fas fa-building"></i>
                             </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-white">Lybernet — Carrefour Assurance</h4>
-                                <p class="text-xs text-slate-400">Support IT & Optimisation des processus de résolution</p>
-                            </div>
+                            <h3 class="text-lg font-bold text-white">Lybernet — Carrefour Assurance</h3>
                         </div>
-
                         <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Au cours de mon expérience chez <strong>Lybernet (Carrefour Assurance)</strong>, j'ai œuvré au sein du support informatique interne. Ma mission clé a consisté à concevoir et intégrer un bot conversationnel basé sur l'IA (Google Gemini) dans Google Chat pour assister les conseillers métiers et désengorger les tickets N1.
+                            Au sein du service informatique de Lybernet (Carrefour Assurance), j'ai contribué à l'amélioration du support IT et à la mise en place de bases de connaissances structurées ainsi qu'à l'assistance intelligente via IA.
                         </p>
-
-                        <h5 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Missions & Activités SISR réalisées :</h5>
-                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberCustom mt-0.5"></i>
-                                <span><strong>Ingénierie KB :</strong> Structuration et rédaction de fiches de résolution au format Markdown (.md) pour les pannes courantes.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberCustom mt-0.5"></i>
-                                <span><strong>Prompt Engineering :</strong> Paramétrage des consignes du Bot IA (1 instruction par message, guidage pas-à-pas, tolérance aux fautes).</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberCustom mt-0.5"></i>
-                                <span><strong>Gestion d'escalade :</strong> Définition des critères d'escalade automatique vers le portail de ticketing Octopus (seuil de 3 étapes).</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-check text-amberCustom mt-0.5"></i>
-                                <span><strong>Amélioration continue :</strong> Tracking des questions non résolues sur Google Sheets pour identifier les manques documentaires.</span>
-                            </li>
-                        </ul>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-white/5 text-slate-300 px-3 py-1 rounded-lg border border-white/10">Support N1/N2/N3</span>
-                            <span class="text-xs bg-white/5 text-slate-300 px-3 py-1 rounded-lg border border-white/10">Markdown KB</span>
-                            <span class="text-xs bg-white/5 text-slate-300 px-3 py-1 rounded-lg border border-white/10">Google Gemini & Chat</span>
-                            <span class="text-xs bg-white/5 text-slate-300 px-3 py-1 rounded-lg border border-white/10">Octopus Ticketing</span>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Support IT</span>
+                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Base de Connaissances Markdown</span>
+                            <span class="bg-slate-800/80 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Google Chat & Gemini</span>
                         </div>
                     </div>
 
-                    <div class="md:col-span-5 bg-cardBg/50 border border-white/10 rounded-2xl p-6">
-                        <h4 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                            <i class="fas fa-server text-amberCustom"></i>
-                            Environnement & Technologies
-                        </h4>
-                        <div class="space-y-4 text-xs text-slate-300">
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/5">
-                                <span class="text-white font-semibold block mb-1">Cible Utilisateurs</span>
-                                <span>Conseillers métiers et conseillers assurance Carrefour.</span>
+                    <!-- Carte Environnement -->
+                    <div class="lg:col-span-5 bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-amber-500/40 transition">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                                <i class="fas fa-server"></i>
                             </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/5">
-                                <span class="text-white font-semibold block mb-1">Outils de Support & Ticketing</span>
-                                <span>Plateforme Octopus, Google Chat, fiches techniques Markdown.</span>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/5">
-                                <span class="text-white font-semibold block mb-1">Technologies IA & Automation</span>
-                                <span>LLM Google Gemini, NotebookLM (RAG), Google Sheets API.</span>
-                            </div>
+                            <h3 class="text-lg font-bold text-white">Environnement & Technologies</h3>
                         </div>
+                        <ul class="space-y-3 text-xs text-slate-300">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-amber-400"></i>
+                                <span>Système de Ticketing Octopus</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-amber-400"></i>
+                                <span>Workspace Google & Chat Bots</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-amber-400"></i>
+                                <span>Documentation technique Markdown</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
             <!-- SECTION PROJETS E4 -->
-            <section id="projets" class="py-12 border-t border-white/10">
+            <section id="projets" class="py-12 border-t border-slate-800/80 mt-12">
                 <div class="mb-8">
-                    <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-2">Portfolio E4</h2>
-                    <h3 class="text-2xl font-bold text-white">Réalisations Professionnelles</h3>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block mb-2">PORTFOLIO E4</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Réalisations Professionnelles</h2>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="bg-cardBg/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col justify-between card-synapse group">
+                    <div class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/40 transition">
                         <div>
-                            <span class="text-xs font-semibold text-amberCustom mb-2 block">FSP n°1</span>
-                            <h4 class="text-lg font-bold text-white mb-2 group-hover:text-amberCustom transition">Bot Conversational IA & Support Conseillers</h4>
+                            <span class="text-amber-400 text-xs font-semibold mb-2 block">Situation Professionnelle n°1</span>
+                            <h4 class="text-lg font-bold text-white mb-2">Bot Conversational IA & Support Conseillers</h4>
                             <p class="text-xs text-slate-400 leading-relaxed mb-4">
-                                Déploiement d'un agent conversationnel Google Gemini intégré à Google Chat. Traitement pas-à-pas des pannes courantes, réduction des tickets N1 et redirection intelligente vers Octopus.
+                                Intégration d'un assistant conversationnel basé sur Gemini et Markdown pour guider les conseillers et réduire le flux de tickets N1.
                             </p>
                         </div>
-                        <div class="flex flex-col gap-2 pt-2 border-t border-white/10">
-                            <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="text-xs text-amberCustom font-bold flex items-center gap-2 group-hover:translate-x-1 transition">
-                                <span>Consulter la fiche descriptive (Google Docs)</span>
+                        <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <a href="https://docs.google.com/document/d/10ZGwMQgb_2VVL2WDCFQcgyS7Or5a9T0tZf0b34Sy0iI/edit?usp=drive_web" target="_blank" class="text-xs text-amber-400 font-bold flex items-center gap-1.5 hover:underline">
+                                <span>Voir la fiche d'activité</span>
                                 <i class="fas fa-external-link-alt text-[10px]"></i>
                             </a>
-                            <a href="Tableau-de-synthese.pdf" target="_blank" class="text-xs text-slate-300 hover:text-white flex items-center gap-2 transition">
-                                <i class="fas fa-file-pdf text-amberCustom"></i>
-                                <span>Télécharger le Tableau de Synthèse (PDF)</span>
-                            </a>
                         </div>
                     </div>
 
-                    <div class="bg-cardBg/30 border border-dashed border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
+                    <div class="bg-[#0d0f17]/40 border border-dashed border-slate-800 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                         <i class="fas fa-plus text-slate-600 mb-2 text-2xl"></i>
-                        <p class="text-sm font-medium text-slate-400">Projet n°2 à venir</p>
-                        <p class="text-xs text-slate-600 mt-1">Sera alimenté lors de la seconde période de stage / alternance</p>
+                        <p class="text-sm font-medium text-slate-500">Projet n°2 à venir</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SECTION VEILLE TECHNOLOGIQUE -->
-            <section id="veille" class="py-12 border-t border-white/10">
+            <!-- SECTION CONTACT (EN BAS) -->
+            <section id="contact" class="py-12 border-t border-slate-800/80 mt-12">
                 <div class="mb-8">
-                    <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-2">Compétence Épreuve E4</h2>
-                    <h3 class="text-2xl font-bold text-white">Veille Technologique</h3>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider block mb-2">ME CONTACTER</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Restons en contact</h2>
                 </div>
 
-                <div class="bg-cardBg/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 card-synapse">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-amberCustom/20 border border-amberCustom/40 flex items-center justify-center text-amberCustom shadow-[0_0_10px_rgba(255,183,3,0.3)]">
-                            <i class="fas fa-rss"></i>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <!-- Carte Email -->
+                    <a href="mailto:gewayriyahussein@gmail.com" class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex items-center gap-4 hover:border-amber-500/40 transition group">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition">
+                            <i class="fas fa-envelope text-lg"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-white">L'IA Générative au service de l'Administration Systèmes et du Support IT</h4>
-                            <p class="text-xs text-slate-400">Sujet de veille suivi durant le cursus BTS SIO SISR</p>
+                            <span class="text-xs text-slate-400 block mb-1">Adresse Email</span>
+                            <span class="text-sm font-bold text-white group-hover:text-amber-400 transition">gewayriyahussein@gmail.com</span>
                         </div>
-                    </div>
-
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                        Analyse constante de l'évolution des modèles de langage (LLM) et des architectures RAG dans l'automatisation de la gestion des incidents, la création automatisée de scripts de déploiement (PowerShell, Bash) et la détection anticipée des anomalies réseau.
-                    </p>
-
-                    <div class="grid sm:grid-cols-3 gap-4 text-xs text-slate-300 mb-4">
-                        <div class="p-3 rounded-xl bg-white/5 border border-white/5">
-                            <span class="text-amberCustom font-bold block mb-1"><i class="fas fa-tools mr-1"></i> Outils de collecte</span>
-                            <span>Feedly, Google Alerts, Flux RSS ANSSI, ZDNet, LeSIO.</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-white/5 border border-white/5">
-                            <span class="text-amberCustom font-bold block mb-1"><i class="fas fa-shield-alt mr-1"></i> Axes de Sécurité</span>
-                            <span>Prévention des fuites de données (DLP) lors de l'utilisation d'IA en entreprise.</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-white/5 border border-white/5">
-                            <span class="text-amberCustom font-bold block mb-1"><i class="fas fa-robot mr-1"></i> Application SISR</span>
-                            <span>Automatisation N1, assistance au diagnostic et rédaction de documentation.</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION CONTACT & LINKEDIN -->
-            <section id="contact" class="py-12 border-t border-white/10">
-                <div class="mb-8">
-                    <h2 class="text-xs uppercase tracking-widest text-amberCustom font-bold mb-2">Réseaux & Échanges</h2>
-                    <h3 class="text-2xl font-bold text-white">Me Contacter</h3>
-                </div>
-
-                <div class="grid sm:grid-cols-3 gap-6">
-                    <a href="https://www.linkedin.com/in/hussein-gewayriya/" target="_blank" class="btn-synapse p-6 rounded-2xl flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-xl bg-black/20 text-black flex items-center justify-center text-2xl mb-3">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <h4 class="font-extrabold text-sm mb-1">LinkedIn</h4>
-                        <p class="text-xs text-black/80 font-semibold">Consulter mon profil professionnel</p>
                     </a>
 
-                    <a href="mailto:hussein.gewayriya@gmail.com" class="btn-synapse p-6 rounded-2xl flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-xl bg-black/20 text-black flex items-center justify-center text-2xl mb-3">
-                            <i class="fas fa-envelope"></i>
+                    <!-- Carte LinkedIn -->
+                    <a href="https://www.linkedin.com/in/gewayriya-hussein-16b5892a3" target="_blank" class="bg-[#0d0f17]/90 border border-slate-800 rounded-2xl p-6 flex items-center gap-4 hover:border-amber-500/40 transition group">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition">
+                            <i class="fab fa-linkedin-in text-lg"></i>
                         </div>
-                        <h4 class="font-extrabold text-sm mb-1">Email</h4>
-                        <p class="text-xs text-black/80 font-semibold">Envoyer un message direct</p>
-                    </a>
-
-                    <a href="CV.pdf" target="_blank" class="btn-synapse p-6 rounded-2xl flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-xl bg-black/20 text-black flex items-center justify-center text-2xl mb-3">
-                            <i class="fas fa-file-pdf"></i>
+                        <div>
+                            <span class="text-xs text-slate-400 block mb-1">Réseau Professionnel</span>
+                            <span class="text-sm font-bold text-white group-hover:text-amber-400 transition">LinkedIn / gewayriya-hussein</span>
                         </div>
-                        <h4 class="font-extrabold text-sm mb-1">Mon CV</h4>
-                        <p class="text-xs text-black/80 font-semibold">Télécharger mon CV PDF</p>
                     </a>
                 </div>
             </section>
@@ -352,56 +227,35 @@
         </main>
 
         <!-- Footer -->
-        <footer class="border-t border-white/10 py-8 text-center text-xs text-slate-500">
-            <p>© 2026 — Portfolio BTS SIO SISR — Hussein GEWAYRIYA (MyDigitalSchool Angers)</p>
+        <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500 mt-12">
+            <p>© 2026 — Portfolio BTS SIO SISR — Hussein GEWAYRIYA</p>
         </footer>
 
     </div>
 
-    <!-- SCRIPT JS ANIMATION SYNAPSIQUE (ADAPTÉ AU SCROLL TOTAL) -->
+    <!-- Script de la toile synaptique dorée -->
     <script>
         const canvas = document.getElementById('synapseCanvas');
         const ctx = canvas.getContext('2d');
 
         let width, height;
         let particles = [];
-        let pulses = [];
 
-        // Redimensionnement qui prend TOUTE la hauteur du document
         function resize() {
             width = canvas.width = window.innerWidth;
-            height = canvas.height = Math.max(
-                document.body.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.clientHeight,
-                document.documentElement.scrollHeight,
-                document.documentElement.offsetHeight
-            );
+            height = canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
         }
         window.addEventListener('resize', resize);
         window.addEventListener('load', resize);
         resize();
 
-        // Suivi de la souris (ajusté avec le défilement de la page)
-        const mouse = { x: null, y: null, radius: 180 };
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.pageX;
-            mouse.y = e.pageY;
-        });
-        window.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-
         class Particle {
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.7;
-                this.vy = (Math.random() - 0.5) * 0.7;
-                this.radius = Math.random() * 2 + 1.5;
-                this.baseAlpha = Math.random() * 0.5 + 0.3;
-                this.alpha = this.baseAlpha;
+                this.vx = (Math.random() - 0.5) * 0.6;
+                this.vy = (Math.random() - 0.5) * 0.6;
+                this.radius = Math.random() * 2 + 1;
             }
 
             update() {
@@ -410,60 +264,20 @@
 
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
-
-                if (mouse.x && mouse.y) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < mouse.radius) {
-                        this.alpha = Math.min(1, this.baseAlpha + (1 - dist / mouse.radius) * 0.8);
-                    } else {
-                        this.alpha = this.baseAlpha;
-                    }
-                } else {
-                    this.alpha = this.baseAlpha;
-                }
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 183, 3, ${this.alpha})`;
-                ctx.shadowBlur = 12;
-                ctx.shadowColor = '#ffb703';
+                ctx.fillStyle = '#f59e0b';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#f59e0b';
                 ctx.fill();
                 ctx.shadowBlur = 0;
             }
         }
 
-        class Pulse {
-            constructor(p1, p2) {
-                this.p1 = p1;
-                this.p2 = p2;
-                this.progress = 0;
-                this.speed = Math.random() * 0.02 + 0.01;
-            }
-
-            update() {
-                this.progress += this.speed;
-            }
-
-            draw() {
-                let x = this.p1.x + (this.p2.x - this.p1.x) * this.progress;
-                let y = this.p1.y + (this.p2.y - this.p1.y) * this.progress;
-
-                ctx.beginPath();
-                ctx.arc(x, y, 3, 0, Math.PI * 2);
-                ctx.fillStyle = '#ffffff';
-                ctx.shadowBlur = 15;
-                ctx.shadowColor = '#ffb703';
-                ctx.fill();
-                ctx.shadowBlur = 0;
-            }
-        }
-
-        // Densité de particules calculée pour couvrir tout le long de la page
-        const particleCount = Math.floor((width * height) / 16000);
+        const particleCount = Math.floor((width * height) / 18000);
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
@@ -482,27 +296,15 @@
                     let dy = particles[i].y - particles[j].y;
                     let dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < 140) {
-                        let opacity = (1 - dist / 140) * 0.3;
+                    if (dist < 130) {
+                        let opacity = (1 - dist / 130) * 0.25;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(255, 183, 3, ${opacity})`;
-                        ctx.lineWidth = 0.9;
+                        ctx.strokeStyle = `rgba(245, 158, 11, ${opacity})`;
+                        ctx.lineWidth = 0.8;
                         ctx.stroke();
-
-                        if (Math.random() < 0.0004) {
-                            pulses.push(new Pulse(particles[i], particles[j]));
-                        }
                     }
-                }
-            }
-
-            for (let i = pulses.length - 1; i >= 0; i--) {
-                pulses[i].update();
-                pulses[i].draw();
-                if (pulses[i].progress >= 1) {
-                    pulses.splice(i, 1);
                 }
             }
 
