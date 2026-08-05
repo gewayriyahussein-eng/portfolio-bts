@@ -162,7 +162,7 @@
 
         <!-- Navigation / En-tête -->
         <header class="flex justify-between items-center py-4 mb-8">
-            <a href="#" class="flex items-center gap-2 font-bold text-lg text-white tracking-tight">
+            <a href="CV alternance informatique  (1).pdf" target="_blank" class="flex items-center gap-2 font-bold text-lg text-white tracking-tight hover:opacity-80 transition" title="Télécharger / Voir mon CV">
                 <div class="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-500">
                     <i class="fas fa-brain text-xs"></i>
                 </div>
@@ -552,6 +552,25 @@
         };
 
         function askBot(topic) {
+            const win = document.getElementById('chatWindow');
+            let userQ = "";
+            if(topic === 'competences') userQ = "🛠️ Quelles sont tes compétences concrètes ?";
+            if(topic === 'lybernet') userQ = "📋 Quel était ton travail sur Octopus ?";
+            if(topic === 'bot') userQ = "🤖 Quel est le rôle du Bot Gemini ?";
+
+            win.innerHTML += `
+                <div class="text-right text-slate-400 mt-2">
+                    <span class="bg-slate-800/80 px-2 py-1 rounded border border-slate-700">${userQ}</span>
+                </div>
+                <div class="text-orange-400 mt-1">
+                    <span class="font-bold">[Bot IA] :</span> ${responses[topic]}
+                </div>
+            `;
+            win.scrollTop = win.scrollHeight;
+        }
+    </script>
+</body>
+</html>
             const win = document.getElementById('chatWindow');
             let userQ = "";
             if(topic === 'competences') userQ = "🛠️ Quelles sont tes compétences concrètes ?";
